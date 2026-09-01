@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>  <html lang="ar" dir="rtl">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>SAJEER | سجير — استوديو هندسة وتصميم</title>  
+<link rel="preconnect" href="https://fonts.googleapis.com">  
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">  
+<style>  
+  :root{  
+    --black:#0d0d0c;  
+    --black-soft:#161513;  
+    --marble:#ece7dd;  
+    --marble-dark:#ddd4bf;  
+    --oxblood:#5c2018;  
+    --oxblood-light:#8a3a28;  
+    --stone:#b08262;  
+    --stone-light:#c9a17e;  
+    --ink:#f2ede2;  
+    --ink-dim:#a89f8f;  
+    --charcoal:#221f1a;  
+    --charcoal-dim:#6b6255;  
+    --line-on-black: rgba(242,237,226,0.14);  
+    --line-on-black-strong: rgba(242,237,226,0.26);  
+    --line-on-marble: rgba(34,31,26,0.14);  
+    --line-on-marble-strong: rgba(34,31,26,0.28);  
+    --sans:'Cairo', sans-serif;  
+    --display:'Anton', 'Cairo', sans-serif;  
+  }  
+  *{box-sizing:border-box; margin:0; padding:0;}  
+  html{scroll-behavior:smooth;}  
+  body{ background:var(--black); color:var(--ink); font-family:var(--sans); line-height:1.6; overflow-x:hidden; }  
+  ::selection{ background:var(--oxblood); color:var(--ink); }  
+  a{ color:inherit; text-decoration:none; }  
+  img{ max-width:100%; display:block; }  [data-en]{ display:none; }
+body.lang-en [data-en]{ display:inline; }
+body.lang-en [data-ar]{ display:none; }
+body.lang-en [data-en-block]{ display:block; }
+body.lang-en [data-ar-block]{ display:none; }
+
+.wrap{ max-width:1220px; margin:0 auto; padding:0 28px; }
+
+/* condensed display headings — bold cropped-edge poster style, matches the studio's own portfolio covers */
+.display{
+font-family:var(--display);
+text-transform:uppercase;
+letter-spacing:0.01em;
+line-height:0.92;
+}
+body.lang-ar .display{ font-family:var(--sans); font-weight:900; text-transform:none; letter-spacing:0; line-height:1.08; }
+
+/* ---------- Header ---------- */
+header{ position:fixed; top:0; left:0; right:0; z-index:100;
+background:linear-gradient(to bottom, rgba(13,13,12,0.97), rgba(13,13,12,0.85) 70%, transparent);
+backdrop-filter:blur(6px);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 28px; max-width:1220px; margin:0 auto; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{ width:36px; height:36px; position:relative; }
+.brand-mark svg{ width:100%; height:100%; }
+.brand-name{ font-weight:900; letter-spacing:0.16em; font-size:15px; }
+.brand-sub{ font-size:10.5px; color:var(--ink-dim); letter-spacing:0.08em; }
+
+.nav-links{ display:flex; align-items:center; gap:32px; }
+.nav-links a{ font-size:13.5px; color:var(--ink-dim); font-weight:700; position:relative; padding:4px 0; }
+.nav-links a:hover{ color:var(--ink); }
+.nav-links a::after{ content:''; position:absolute; bottom:-2px; left:0; right:0; height:1px; background:var(--stone-light); transform:scaleX(0); transition:transform .3s ease; }
+.nav-links a:hover::after{ transform:scaleX(1); }
+@media (max-width:820px){ .nav-links{ display:none; } }
+
+.lang-toggle{ border:1px solid var(--line-on-black-strong); background:transparent; color:var(--stone-light);
+font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:0.06em; padding:8px 16px; cursor:pointer; }
+.lang-toggle:hover{ border-color:var(--stone-light); background:rgba(176,130,98,0.08); }
+
+/* ---------- Hero ---------- */
+.hero{ position:relative; min-height:100vh; display:flex; align-items:center; padding:150px 0 80px; overflow:hidden; }
+.hero::before{
+content:''; position:absolute; inset:0;
+background: radial-gradient(ellipse 70% 50% at 78% 30%, rgba(92,32,24,0.35), transparent 60%);
+pointer-events:none;
+}
+.hero .wrap{ position:relative; z-index:2; }
+.eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:0.18em; color:var(--stone-light); font-weight:700; margin-bottom:24px; text-transform:uppercase; }
+.eyebrow::before{ content:''; width:26px; height:1px; background:var(--stone-light); }
+
+.hero h1{ font-size:clamp(46px, 8vw, 108px); margin-inline-start:-4px; margin-bottom:8px; color:var(--ink); }
+.hero h1 .line2{ color:var(--stone-light); }
+
+.hero-tagline{ font-size:16.5px; color:var(--ink-dim); max-width:480px; margin:26px 0 34px; font-weight:500; }
+
+.tdc{ display:flex; gap:0; margin-bottom:40px; flex-wrap:wrap; }
+.tdc-item{ padding:0 22px; border-inline-start:1px solid var(--line-on-black-strong); font-size:12px; letter-spacing:0.1em; color:var(--ink-dim); font-weight:700; text-transform:uppercase; }
+.tdc-item:first-child{ padding-inline-start:0; border-inline-start:none; }
+.tdc-num{ display:block; color:var(--stone-light); font-size:10px; margin-bottom:6px; }
+
+.btn{ display:inline-flex; align-items:center; gap:10px; padding:14px 30px; font-weight:800; font-size:13.5px; letter-spacing:0.03em; cursor:pointer; transition:all .25s ease; border:1px solid transparent; text-transform:uppercase; }
+body.lang-ar .btn{ text-transform:none; }
+.btn-primary{ background:var(--oxblood); color:var(--ink); }
+.btn-primary:hover{ background:var(--oxblood-light); transform:translateY(-2px); }
+.btn-ghost{ border-color:var(--line-on-black-strong); color:var(--ink); }
+.btn-ghost:hover{ border-color:var(--stone-light); color:var(--stone-light); }
+.cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
+
+/* hero medallion — linework nod to the carved calligraphy medallions */
+.medallion{ position:absolute; top:50%; inset-inline-end:-60px; transform:translateY(-50%); width:440px; opacity:0.9; z-index:1; }
+.medallion svg{ width:100%; height:100%; }
+.medallion-path{ fill:none; stroke:var(--stone-light); stroke-width:1; opacity:0.55; }
+.medallion-path-b{ fill:none; stroke:var(--oxblood-light); stroke-width:1.2; opacity:0.5; }
+@media (max-width:1080px){ .medallion{ width:300px; opacity:0.35; } }
+@media (max-width:760px){ .medallion{ display:none; } }
+
+/* ---------- shared section ---------- */
+section{ position:relative; padding:100px 0; }
+.section-head{ margin-bottom:52px; max-width:640px; }
+.kicker{ font-size:11.5px; letter-spacing:0.18em; color:var(--stone-light); font-weight:800; text-transform:uppercase; margin-bottom:14px; display:block; }
+body.lang-ar .kicker{ text-transform:none; letter-spacing:0.02em; }
+.section-head h2{ font-size:clamp(32px,4.6vw,52px); margin-bottom:14px; color:var(--ink); }
+.on-marble .section-head h2{ color:var(--charcoal); }
+.section-head p{ color:var(--ink-dim); font-size:15.5px; max-width:520px; }
+.on-marble .section-head p{ color:var(--charcoal-dim); }
+.on-marble{ background:var(--marble); color:var(--charcoal); }
+.on-marble .kicker{ color:var(--oxblood); }
+
+/* ---------- Work grid — the studio's own black-card poster language ---------- */
+.work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line-on-black); }
+@media (max-width:900px){ .work-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .work-grid{ grid-template-columns:1fr; } }
+
+.proj-card{ position:relative; background:var(--black-soft); min-height:340px; overflow:hidden; padding:26px; display:flex; flex-direction:column; justify-content:flex-end; cursor:default; }
+.proj-card .proj-bg{ position:absolute; inset:0; z-index:0; opacity:0.9; transition:transform .6s ease, opacity .4s ease; }
+.proj-card:hover .proj-bg{ transform:scale(1.06); }
+.proj-card::after{ content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(13,13,12,0.94) 10%, rgba(13,13,12,0.25) 60%, rgba(13,13,12,0.55)); z-index:1; }
+.proj-index{ position:absolute; top:22px; inset-inline-start:22px; z-index:2; font-size:11px; letter-spacing:0.1em; color:var(--stone-light); border:1px solid var(--line-on-black-strong); padding:5px 10px; font-weight:700; background:rgba(13,13,12,0.5); }
+.proj-content{ position:relative; z-index:2; }
+.proj-tag{ font-size:11px; letter-spacing:0.14em; color:var(--stone-light); text-transform:uppercase; margin-bottom:10px; font-weight:700; }
+body.lang-ar .proj-tag{ text-transform:none; }
+.proj-title{ font-size:clamp(26px,3vw,34px); line-height:0.98; margin-bottom:10px; color:var(--ink); }
+.proj-desc{ font-size:13.5px; color:var(--ink-dim); max-width:280px; }
+
+/* per-card decorative backgrounds (abstracted, no photography) */
+.bg-garden{ background:
+radial-gradient(circle at 25% 30%, rgba(139,58,40,0.35), transparent 45%),
+repeating-linear-gradient(115deg, rgba(176,130,98,0.14) 0 3px, transparent 3px 22px),
+linear-gradient(160deg, #241f19, #12100d); }
+.bg-hearth{ background:
+repeating-linear-gradient(0deg, rgba(176,130,98,0.16) 0 18px, transparent 18px 40px),
+repeating-linear-gradient(90deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 60px),
+linear-gradient(160deg, #2b1a12, #14100c); }
+.bg-site{ background:
+radial-gradient(circle at 70% 25%, rgba(92,32,24,0.4), transparent 50%),
+linear-gradient(120deg, transparent 49%, rgba(242,237,226,0.06) 50%, transparent 51%),
+linear-gradient(160deg, #1c1b18, #0e0d0b); }
+
+/* ---------- Craft / ornament section ---------- */
+.craft-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+@media (max-width:880px){ .craft-grid{ grid-template-columns:1fr; gap:36px; } }
+.rosette-frame{ position:relative; aspect-ratio:1; border:1px solid var(--line-on-marble-strong); display:flex; align-items:center; justify-content:center; padding:30px; background:rgba(92,32,24,0.03); }
+.rosette-frame svg{ width:100%; height:100%; }
+.rosette-line{ fill:none; stroke:var(--oxblood); stroke-width:1.1; }
+.rosette-line-b{ fill:none; stroke:var(--charcoal); stroke-width:0.6; opacity:0.5; }
+.craft-text p{ color:var(--charcoal-dim); font-size:16px; margin-bottom:20px; max-width:440px; }
+.craft-text p:first-of-type{ color:var(--charcoal); font-size:18.5px; font-weight:700; line-height:1.7; }
+.craft-marks{ display:flex; gap:0; margin-top:30px; flex-wrap:wrap; }
+.craft-mark{ padding-inline-end:26px; margin-inline-end:26px; border-inline-end:1px solid var(--line-on-marble-strong); }
+.craft-mark:last-child{ border-inline-end:none; }
+.craft-mark b{ display:block; font-size:26px; color:var(--oxblood); font-family:var(--display); }
+body.lang-ar .craft-mark b{ font-family:var(--sans); font-weight:900; }
+.craft-mark span{ font-size:11.5px; color:var(--charcoal-dim); letter-spacing:0.06em; text-transform:uppercase; }
+body.lang-ar .craft-mark span{ text-transform:none; }
+
+/* ---------- Process / site-analysis diagram ---------- */
+.process-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+@media (max-width:880px){ .process-grid{ grid-template-columns:1fr; gap:40px; } }
+.analysis-frame{ border:1px solid var(--line-on-black-strong); padding:26px; position:relative; }
+.analysis-frame svg{ width:100%; height:auto; }
+.steps{ display:flex; flex-direction:column; }
+.step{ display:flex; gap:22px; padding:26px 0; border-bottom:1px solid var(--line-on-black); }
+.step:last-child{ border-bottom:none; }
+.step-num{ font-family:var(--display); font-size:34px; color:var(--oxblood-light); min-width:56px; }
+body.lang-ar .step-num{ font-family:var(--sans); font-weight:900; }
+.step h3{ font-size:18px; margin-bottom:8px; color:var(--ink); font-weight:800; }
+.step p{ font-size:14px; color:var(--ink-dim); max-width:380px; }
+
+/* ---------- Services ---------- */
+.services-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-on-black-strong); border:1px solid var(--line-on-black-strong); }
+@media (max-width:920px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+.service-card{ background:var(--black); padding:36px 26px; transition:background .3s ease; }
+.service-card:hover{ background:var(--black-soft); }
+.service-index{ font-size:11px; color:var(--stone-light); letter-spacing:0.1em; margin-bottom:20px; display:block; }
+.service-icon{ width:38px; height:38px; margin-bottom:18px; }
+.service-icon svg{ width:100%; height:100%; }
+.service-card h3{ font-size:17px; font-weight:800; margin-bottom:10px; }
+.service-card p{ color:var(--ink-dim); font-size:13.5px; }
+
+/* ---------- Contact ---------- */
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+@media (max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:36px; } }
+.contact-info p{ color:var(--ink-dim); font-size:16px; max-width:420px; margin-bottom:30px; }
+.contact-list{ display:flex; flex-direction:column; gap:18px; }
+.contact-list .row{ display:flex; justify-content:space-between; border-bottom:1px solid var(--line-on-black); padding-bottom:14px; }
+.contact-list .k{ font-size:11.5px; letter-spacing:0.08em; color:var(--ink-dim); text-transform:uppercase; }
+body.lang-ar .contact-list .k{ text-transform:none; }
+.contact-list .v{ font-size:14.5px; font-weight:700; }
+
+.cform{ display:flex; flex-direction:column; gap:15px; }
+.cform input, .cform textarea{ width:100%; background:transparent; border:none; border-bottom:1px solid var(--line-on-black-strong); color:var(--ink); font-family:var(--sans); font-size:14.5px; padding:11px 2px; outline:none; }
+.cform input::placeholder, .cform textarea::placeholder{ color:var(--ink-dim); }
+.cform input:focus, .cform textarea:focus{ border-color:var(--stone-light); }
+.cform textarea{ resize:vertical; min-height:86px; }
+.cform button{ align-self:flex-start; margin-top:6px; }
+
+footer{ padding:36px 0; border-top:1px solid var(--line-on-black); }
+footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+.foot-note{ font-size:12px; color:var(--ink-dim); }
+
+a.btn:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{ outline:2px solid var(--stone-light); outline-offset:2px; }
+
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } .proj-card .proj-bg{ transition:none; } }
+</style>
+
+</head>  
+<body class="lang-ar">  <header>  
+  <div class="nav">  
+    <div class="brand">  
+      <div class="brand-mark">  
+        <svg viewBox="0 0 40 40"><path d="M6 34 L6 18 C6 9 12 4 20 4 C28 4 34 9 34 18 L34 34" fill="none" stroke="#c9a17e" stroke-width="1.6"/><path d="M13 34 L13 20 C13 13 16 9 20 9 C24 9 27 13 27 20 L27 34" fill="none" stroke="#5c2018" stroke-width="1.2"/></svg>  
+      </div>  
+      <div>  
+        <div class="brand-name">SAJEER</div>  
+        <div class="brand-sub" data-ar>استوديو هندسة وتصميم</div>  
+        <div class="brand-sub" data-en>Engineering &amp; Design Studio</div>  
+      </div>  
+    </div>  
+    <nav class="nav-links">  
+      <a href="#work" data-ar>الأعمال</a><a href="#work" data-en>Work</a>  
+      <a href="#craft" data-ar>الحرفية</a><a href="#craft" data-en>Craft</a>  
+      <a href="#process" data-ar>المنهج</a><a href="#process" data-en>Process</a>  
+      <a href="#services" data-ar>الخدمات</a><a href="#services" data-en>Services</a>  
+      <a href="#contact" data-ar>تواصل</a><a href="#contact" data-en>Contact</a>  
+    </nav>  
+    <button class="lang-toggle" id="langToggle">EN / عربي</button>  
+  </div>  
+</header>  <section class="hero">  
+  <div class="medallion">  
+    <svg viewBox="0 0 300 300">  
+      <circle class="medallion-path" cx="150" cy="150" r="120"/>  
+      <circle class="medallion-path" cx="150" cy="150" r="95"/>  
+      <path class="medallion-path-b" d="M150 40 L172 95 L230 100 L186 138 L200 195 L150 163 L100 195 L114 138 L70 100 L128 95 Z"/>  
+    </svg>  
+  </div>  
+  <div class="wrap">  
+    <span class="eyebrow" data-ar>استوديو هندسة وتصميم</span>  
+    <span class="eyebrow" data-en>Engineering &amp; Design Studio</span>  
+    <h1 class="display">  
+      <span data-ar-block>نحوّل الأفكار<br><span class="line2">إلى حلول مدروسة</span></span>  
+      <span data-en-block>Ideas, made<br><span class="line2">into considered form.</span></span>  
+    </h1>  
+    <p class="hero-tagline" data-ar>سجير يجمع بين الدقة الهندسية والتفاصيل الحرفية في كل مشروع معماري وهندسي نصممه.</p>  
+    <p class="hero-tagline" data-en>SAJEER pairs engineering precision with a craftsman's attention to detail in every project we design.</p>  
+    <div class="tdc">  
+      <div class="tdc-item"><span class="tdc-num">01</span><span data-ar>فكّر</span><span data-en>Think</span></div>  
+      <div class="tdc-item"><span class="tdc-num">02</span><span data-ar>صمّم</span><span data-en>Design</span></div>  
+      <div class="tdc-item"><span class="tdc-num">03</span><span data-ar>ابتكر</span><span data-en>Create</span></div>  
+    </div>  
+    <div class="cta-row">  
+      <a href="#work" class="btn btn-primary"><span data-ar>شاهد أعمالنا</span><span data-en>See our work</span></a>  
+      <a href="#contact" class="btn btn-ghost"><span data-ar>تواصل معنا</span><span data-en>Get in touch</span></a>  
+    </div>  
+  </div>  
+</section>  <section id="work">  
+  <div class="wrap">  
+    <div class="section-head reveal">  
+      <span class="kicker" data-ar>أعمال مختارة</span>  
+      <span class="kicker" data-en>Selected work</span>  
+      <h2 class="display"><span data-ar>من الفكرة إلى الموقع</span><span data-en>From concept to site</span></h2>  
+    </div>  
+  </div>  
+  <div class="work-grid reveal">  
+    <div class="proj-card">  
+      <div class="proj-bg bg-garden"></div>  
+      <span class="proj-index">N.01</span>  
+      <div class="proj-content">  
+        <div class="proj-tag" data-ar>تنسيق حدائق</div><div class="proj-tag" data-en>Garden Design</div>  
+        <div class="proj-title display"><span data-ar>ملاذ اجتماعي خارجي</span><span data-en>A Social Retreat</span></div>  
+        <p class="proj-desc" data-ar>حديقة سكنية تنظّم المساحات الخضراء وزوايا الجلوس حول نقطة تجمع مركزية.</p>  
+        <p class="proj-desc" data-en>A residential garden organizing planting and seating around a central gathering point.</p>  
+      </div>  
+    </div>  
+    <div class="proj-card">  
+      <div class="proj-bg bg-hearth"></div>  
+      <span class="proj-index">N.02</span>  
+      <div class="proj-content">  
+        <div class="proj-tag" data-ar>مطبخ خارجي</div><div class="proj-tag" data-en>Outdoor Kitchen</div>  
+        <div class="proj-title display" data-ar>الموقد</div>  
+        <div class="proj-title display" data-en>The Hearth</div>  
+        <p class="proj-desc" data-ar>مطبخ حجري خارجي يترجم تقنيات الطهي التقليدية إلى مساحة اجتماعية معاصرة.</p>  
+        <p class="proj-desc" data-en>A stone outdoor kitchen translating traditional cooking techniques into a contemporary social space.</p>  
+      </div>  
+    </div>  
+    <div class="proj-card">  
+      <div class="proj-bg bg-site"></div>  
+      <span class="proj-index">N.03</span>  
+      <div class="proj-content">  
+        <div class="proj-tag" data-ar>تحليل موقع</div><div class="proj-tag" data-en>Site Analysis</div>  
+        <div class="proj-title display"><span data-ar>قراءة العمق</span><span data-en>Interpreting Depth</span></div>  
+        <p class="proj-desc" data-ar>مساحة خارجية خاصة صُممت بعد دراسة مسار الشمس والرياح ونقاط الوصول.</p>  
+        <p class="proj-desc" data-en>A private outdoor space designed around the site's sun path, wind, and access.</p>  
+      </div>  
+    </div>  
+  </div>  
+</section>  <section class="on-marble" id="craft">  
+  <div class="wrap">  
+    <div class="craft-grid">  
+      <div class="rosette-frame reveal">  
+        <svg viewBox="0 0 300 300">  
+          <circle class="rosette-line-b" cx="150" cy="150" r="130"/>  
+          <circle class="rosette-line" cx="150" cy="150" r="105"/>  
+          <g>  
+            <path class="rosette-line" d="M150 45 L179 108 L248 116 L197 163 L212 231 L150 196 L88 231 L103 163 L52 116 L121 108 Z"/>  
+          </g>  
+          <circle class="rosette-line-b" cx="150" cy="150" r="46"/>  
+          <path class="ro
